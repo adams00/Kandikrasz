@@ -1,5 +1,39 @@
+@keyframes changeOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(116, 90, 25);
+  /* background-image: url("img/pexels-photo-235985.jpeg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+main {
+  margin: auto;
+  width: 90vh;
+  height: 90vh;
+  /* background-color: blanchedalmond; */
+}
+canvas {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body > img {
+  position: absolute;
+  z-index: -1;
+  width: inherit;
+  height: inherit;
+  opacity: 1;
+  animation: 2s changeOpacity;
 }
