@@ -1,10 +1,31 @@
-export function getLength() {
+export const length = getLength();
+export const c = canvasInit(length);
+
+function getLength() {
   const main = document.querySelector("main");
   return main.offsetWidth;
 }
-export function canvasInit(length) {
+function canvasInit(length) {
   const canvas = document.querySelector("canvas");
   canvas.width = length;
   canvas.height = length;
   return canvas.getContext("2d");
+}
+export function drawLines(columns) {
+  const width = (c.lineWidth = 2);
+  for (
+    let i = width / 2;
+    i <= length - width / 2;
+    i += (length - width) / columns
+  ) {
+    c.beginPath();
+    c.strokeStyle = "brown";
+    c.moveTo(0, i);
+    c.lineTo(length, i);
+    c.stroke();
+    c.beginPath();
+    c.moveTo(i, 0);
+    c.lineTo(i, length);
+    c.stroke();
+  }
 }

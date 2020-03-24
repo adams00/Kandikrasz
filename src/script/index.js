@@ -1,5 +1,4 @@
 import "../css/style.css";
-import { canvasInit, getLength } from "./init.js";
+import { canvasInit, getLength, drawLines } from "./init.js";
 
-const length = getLength();
-const c = canvasInit(length);
+drawLines(10);
