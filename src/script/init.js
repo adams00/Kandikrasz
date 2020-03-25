@@ -29,3 +29,10 @@ export function drawLines(columns) {
     c.stroke();
   }
 }
+export function getCanvasStartPoint() {
+  const canvas = document.querySelector("canvas");
+  const rect = canvas.getBoundingClientRect();
+  const left = Math.floor(rect.left);
+  const top = Math.floor(rect.top);
+  return [left, top];
+}
