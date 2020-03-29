@@ -42,3 +42,9 @@ export function getLocalCoordinates(event) {
   const localTop = event.pageY - top;
   return [localLeft, localTop];
 }
+export function findCell(x, y, columns) {
+  const cellLength = length / columns;
+  const column = Math.floor(x / cellLength);
+  const row = Math.floor(y / cellLength);
+  return [column, row];
+}
