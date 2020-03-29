@@ -5,7 +5,7 @@ function getLength() {
   const main = document.querySelector("main");
   return main.offsetWidth;
 }
-function canvasInit(length) {
+function canvasInit() {
   const canvas = document.querySelector("canvas");
   canvas.width = length;
   canvas.height = length;
