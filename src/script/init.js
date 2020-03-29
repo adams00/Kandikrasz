@@ -36,3 +36,9 @@ export function getCanvasStartPoint() {
   const top = Math.floor(rect.top);
   return [left, top];
 }
+export function getLocalCoordinates(event) {
+  const [left, top] = getCanvasStartPoint();
+  const localLeft = event.pageX - left;
+  const localTop = event.pageY - top;
+  return [localLeft, localTop];
+}
