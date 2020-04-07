@@ -1,3 +1,8 @@
+import { Sweet } from "./sweet";
+import { parameters } from "./parameters";
+
+const { columns, lineWidth } = parameters;
+
 export const length = getLength();
 export const c = canvasInit(length);
 
