@@ -63,12 +63,8 @@ function canvasInit() {
   return canvas.getContext("2d");
 }
 export function drawLines(columns) {
-  const width = (c.lineWidth = 2);
-  for (
-    let i = width / 2;
-    i <= length - width / 2;
-    i += (length - width) / columns
-  ) {
+  c.lineWidth = lineWidth;
+  for (let i = lineWidth / 2; i < length; i += (length - lineWidth) / columns) {
     c.beginPath();
     c.strokeStyle = "brown";
     c.moveTo(0, i);
