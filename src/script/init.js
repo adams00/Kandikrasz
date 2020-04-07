@@ -7,6 +7,16 @@ export const length = getLength();
 export const c = canvasInit(length);
 export let gameArr = createEmptyGameArray();
 
+export const types = [
+  "biscuit",
+  "candy-cane",
+  "candy",
+  "gingerbread-man",
+  "gingerbread-man2",
+  "lollipop",
+  "toffee",
+];
+
 function createEmptyGameArray() {
   return [...Array(columns)].map((e) => Array(columns));
 }
