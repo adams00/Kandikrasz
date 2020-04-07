@@ -5,6 +5,11 @@ const { columns, lineWidth } = parameters;
 
 export const length = getLength();
 export const c = canvasInit(length);
+export let gameArr = createEmptyGameArray();
+
+function createEmptyGameArray() {
+  return [...Array(columns)].map((e) => Array(columns));
+}
 
 function getLength() {
   const main = document.querySelector("main");
