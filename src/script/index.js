@@ -1,4 +1,9 @@
 import "../css/style.css";
-import { drawLines } from "./init.js";
+import { drawLines, drawAllCandys, setRandomCandys } from "./init.js";
+import { parameters } from "./parameters";
 
-drawLines(10);
+window.onload = () => {
+  drawLines(parameters.columns);
+  setRandomCandys();
+  drawAllCandys();
+};
