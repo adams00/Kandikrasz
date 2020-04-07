@@ -20,6 +20,11 @@ export const types = [
 function createEmptyGameArray() {
   return [...Array(columns)].map((e) => Array(columns));
 }
+function randomCandy(arr) {
+  const { length } = arr;
+  const float = Math.random() * length;
+  return arr[Math.floor(float)];
+}
 
 function getLength() {
   const main = document.querySelector("main");
