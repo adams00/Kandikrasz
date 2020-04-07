@@ -26,6 +26,24 @@ function randomCandy(arr) {
   return arr[Math.floor(float)];
 }
 
+export function setRandomCandys() {
+  const imgWidth = (length - lineWidth * (columns + 1)) / columns;
+  const frameWidth = (length - lineWidth) / columns;
+  let column = 0;
+  let row = 0;
+  for (let x = lineWidth; x < length - 1; x += frameWidth) {
+    for (let y = lineWidth; y < length - 1; y += frameWidth) {
+      gameArr[row][column] = new Sweet(randomCandy(types), x, y, imgWidth);
+      if (column === columns - 1) {
+        column = 0;
+      } else {
+        column++;
+      }
+    }
+    row++;
+  }
+}
+
 function getLength() {
   const main = document.querySelector("main");
   return main.offsetWidth;
