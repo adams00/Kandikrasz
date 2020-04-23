@@ -6,6 +6,7 @@ const { columns, lineWidth } = parameters;
 export const length = getLength();
 export const c = canvasInit(length);
 export let gameArr = createEmptyGameArray();
+export const canvasStartPoint = getCanvasStartPoint();
 
 export const types = [
   "biscuit",
@@ -76,7 +77,7 @@ export function drawLines(columns) {
     c.stroke();
   }
 }
-export function getCanvasStartPoint() {
+function getCanvasStartPoint() {
   const canvas = document.querySelector("canvas");
   const rect = canvas.getBoundingClientRect();
   const left = Math.floor(rect.left);
