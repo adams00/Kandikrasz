@@ -84,3 +84,6 @@ function getCanvasStartPoint() {
   const top = Math.floor(rect.top);
   return [left, top];
 }
+export function clearCanvas() {
+  c.clearRect(0, 0, length, length);
+}

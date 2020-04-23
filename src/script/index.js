@@ -1,5 +1,10 @@
 import "../css/style.css";
-import { drawLines, drawAllCandys, setRandomCandys } from "./init.js";
+import {
+  drawLines,
+  drawAllCandys,
+  setRandomCandys,
+  clearCanvas,
+} from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
 
@@ -9,6 +14,8 @@ window.onload = () => {
   drawAllCandys();
 };
 document.addEventListener("click", (event) => {
+  clearCanvas();
+  drawLines(parameters.columns);
   toggleSelection(event);
   drawAllCandys();
 });
