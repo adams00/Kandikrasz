@@ -13,7 +13,7 @@ window.onload = () => {
   setRandomCandys();
   drawAllCandys();
 };
-document.addEventListener("click", (event) => {
+document.querySelector("canvas").addEventListener("click", (event) => {
   clearCanvas();
   drawLines(parameters.columns);
   toggleSelection(event);
