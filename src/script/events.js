@@ -41,7 +41,7 @@ function checkIfActionNeeded(cell) {
   const result = (a + 1 == x) + (a - 1 == x) + (b + 1 == y) + (b - 1 == y);
   if (result == 1) {
     clearPreviousSelection();
-    parameters.selectedCell = [];
+    parameters.selectedCell = null;
     toggleCandies();
     return true;
   }
