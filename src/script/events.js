@@ -35,3 +35,15 @@ function clearPreviousSelection() {
   const [column, row] = parameters.selectedCell;
   gameArr[column][row].selected = false;
 }
+function checkIfActionNeeded(cell) {
+  const [a, b] = parameters.selectedCell;
+  const [x, y] = cell;
+  const result = (a + 1 == x) + (a - 1 == x) + (b + 1 == y) + (b - 1 == y);
+  if (result == 1) {
+    clearPreviousSelection();
+    parameters.selectedCell = [];
+    toggleCandies();
+    return true;
+  }
+  return false;
+}
