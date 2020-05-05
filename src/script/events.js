@@ -16,6 +16,18 @@ function findCell(event) {
   return [column, row];
 }
 export function toggleSelection(event) {
-  const [x, y] = findCell(event);
-  gameArr[x][y].selected = true;
+  const [column, row] = findCell(event);
+  if (!parameters.selectedCell) {
+    gameArr[column][row].selected = true;
+    parameters.selectedCell = [column, row];
+  } else if (
+    parameters.selectedCell[0] !== column ||
+    parameters.selectedCell[1] !== row
+  ) {
+    if (!checkIfActionNeeded([column, row])) {
+      clearPreviousSelection();
+      gameArr[column][row].selected = true;
+      parameters.selectedCell = [column, row];
+    }
+  }
 }
