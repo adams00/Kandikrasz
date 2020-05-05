@@ -31,3 +31,7 @@ export function toggleSelection(event) {
     }
   }
 }
+function clearPreviousSelection() {
+  const [column, row] = parameters.selectedCell;
+  gameArr[column][row].selected = false;
+}
