@@ -14,8 +14,10 @@ window.onload = () => {
   drawAllCandys();
 };
 document.querySelector("canvas").addEventListener("click", (event) => {
-  clearCanvas();
-  drawLines(parameters.columns);
-  toggleSelection(event);
-  drawAllCandys();
+  if (parameters.clickPossible) {
+    clearCanvas();
+    drawLines(parameters.columns);
+    toggleSelection(event);
+    drawAllCandys();
+  }
 });

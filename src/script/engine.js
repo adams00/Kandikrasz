@@ -1,3 +1,5 @@
+import { parameters } from "./parameters";
+
 export function findMachingCandies(board) {
   const height = board.length;
   const width = board[0].length;
@@ -35,4 +37,10 @@ export function findMachingCandies(board) {
   }
 
   return matches.filter((match) => match.length >= 3);
+}
+export function preventClick(ms) {
+  parameters.clickPossible = false;
+  setTimeout(() => {
+    parameters.clickPossible = true;
+  }, ms);
 }
