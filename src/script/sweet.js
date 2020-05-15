@@ -17,6 +17,7 @@ export class Sweet {
     this.startX = null;
     this.startY = null;
     this.selected = false;
+    this.animation = false;
   }
   draw() {
     if (this.selected) {
