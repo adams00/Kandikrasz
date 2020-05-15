@@ -2,7 +2,7 @@ import { c } from "./init";
 import { parameters } from "./parameters";
 
 export class Sweet {
-  constructor(name, x, y, width) {
+  constructor(name, x, y, width, row, column) {
     this.name = name;
     this.image = document.getElementById(name);
     this.x = x;
