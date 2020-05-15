@@ -7,7 +7,15 @@ export class Sweet {
     this.image = document.getElementById(name);
     this.x = x;
     this.y = y;
+    this.row = row;
+    this.column = column;
+    this.velocityX = 0;
+    this.velocityY = 0;
     this.width = width;
+    this.limitY = null;
+    this.limitX = null;
+    this.startX = null;
+    this.startY = null;
     this.selected = false;
   }
   draw() {
