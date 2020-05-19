@@ -17,17 +17,19 @@ function findCell(event) {
 }
 export function toggleSelection(event) {
   const [column, row] = findCell(event);
-  if (!parameters.selectedCell) {
-    gameArr[column][row].selected = true;
-    parameters.selectedCell = [column, row];
+  const currentCandy = gameArr[row][column];
+  const previousCandy = parameters.selectedCandy;
+  if (Object.keys(previousCandy).length === 0) {
+    currentCandy.selected = true;
+    parameters.selectedCandy = currentCandy;
   } else if (
-    parameters.selectedCell[0] !== column ||
-    parameters.selectedCell[1] !== row
+    previousCandy.column !== currentCandy.column ||
+    previousCandy.row !== currentCandy.row
   ) {
-    if (!checkIfActionNeeded([column, row])) {
-      clearPreviousSelection();
-      gameArr[column][row].selected = true;
-      parameters.selectedCell = [column, row];
+    if (!checkIfActionNeeded(previousCandy, currentCandy)) {
+      previousCandy.selected = false;
+      currentCandy.selected = true;
+      parameters.selectedCandy = currentCandy;
     }
   }
 }
