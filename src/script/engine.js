@@ -1,4 +1,5 @@
 import { parameters } from "./parameters";
+import { gameArr } from "./init";
 
 export function findMachingCandies(board) {
   const height = board.length;
@@ -35,7 +36,6 @@ export function findMachingCandies(board) {
 
     prev = null;
   }
-
   return matches.filter((match) => match.length >= 3);
 }
 export function preventClick(ms) {
@@ -43,4 +43,35 @@ export function preventClick(ms) {
   setTimeout(() => {
     parameters.clickPossible = true;
   }, ms);
+}
+
+export function forAllCandies(fn) {
+  gameArr.forEach((row, y) => {
+    row.forEach((candy, x) => {
+      fn(candy, x, y);
+    });
+  });
+}
+
+export function removeInvisible(candy) {
+  const { column, row } = candy;
+  if (candy.width == 0) {
+    gameArr[row][column] = null;
+  }
+}
+
+export function disappearAllMaching() {
+  const maching = findMachingCandies(gameArr);
+  maching.forEach((set) => {
+    set.forEach(([x, y]) => {
+      gameArr[y][x].animation = "disappear";
+    });
+  });
+}
+
+export function replaceCandies(previousCandy, currentCandy) {
+  const { row, column } = previousCandy;
+  const { row: row2, column: column2 } = currentCandy;
+  gameArr[row][column] = currentCandy;
+  gameArr[row2][column2] = previousCandy;
 }
