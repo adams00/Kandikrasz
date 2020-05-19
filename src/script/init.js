@@ -32,9 +32,16 @@ export function setRandomCandys() {
   const frameWidth = (length - lineWidth) / columns;
   let column = 0;
   let row = 0;
-  for (let x = lineWidth; x < length - 1; x += frameWidth) {
-    for (let y = lineWidth; y < length - 1; y += frameWidth) {
-      gameArr[row][column] = new Sweet(randomCandy(types), x, y, imgWidth);
+  for (let y = lineWidth; y < length - 1; y += frameWidth) {
+    for (let x = lineWidth; x < length - 1; x += frameWidth) {
+      gameArr[row][column] = new Sweet(
+        randomCandy(types),
+        x,
+        y,
+        imgWidth,
+        row,
+        column
+      );
       if (column === columns - 1) {
         column = 0;
       } else {
