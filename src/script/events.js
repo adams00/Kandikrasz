@@ -33,18 +33,20 @@ export function toggleSelection(event) {
     }
   }
 }
-function clearPreviousSelection() {
-  const [column, row] = parameters.selectedCell;
-  gameArr[column][row].selected = false;
-}
-function checkIfActionNeeded(cell) {
-  const [a, b] = parameters.selectedCell;
-  const [x, y] = cell;
-  const result = (a + 1 == x) + (a - 1 == x) + (b + 1 == y) + (b - 1 == y);
+
+function checkIfActionNeeded(previousCandy, currentCandy) {
+  const { row, column } = previousCandy;
+  const { row: row2, column: column2 } = currentCandy;
+  const result =
+    (row + 1 == row2) +
+    (row - 1 == row2) +
+    (column + 1 == column2) +
+    (column - 1 == column2);
   if (result == 1) {
-    clearPreviousSelection();
-    parameters.selectedCell = null;
-    toggleCandies();
+    previousCandy.selected = false;
+    currentCandy.selected = false;
+    parameters.selectedCandy = {};
+    toggleCandies(previousCandy, currentCandy);
     return true;
   }
   return false;
