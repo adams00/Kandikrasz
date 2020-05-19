@@ -67,3 +67,41 @@ function toggleCandies(previousCandy, currentCandy) {
     spinCandies(previousCandy, currentCandy);
   }
 }
+
+function setLimits(previousCandy, currentCandy, axis) {
+  if (axis === "x") {
+    previousCandy.limitX = currentCandy.x;
+    currentCandy.limitX = previousCandy.x;
+  }
+  if (axis === "y") {
+    previousCandy.limitY = currentCandy.y;
+    currentCandy.limitY = previousCandy.y;
+  }
+}
+
+function applyAnimation(previousCandy, currentCandy, animation) {
+  previousCandy.animation = currentCandy.animation = animation;
+}
+
+function changeCandies(previousCandy, currentCandy) {
+  replaceCandies(previousCandy, currentCandy);
+  if (previousCandy.column == currentCandy.column) {
+    setLimits(previousCandy, currentCandy, "y");
+    applyAnimation(previousCandy, currentCandy, "changePlaceY");
+  }
+  if (previousCandy.row == currentCandy.row) {
+    setLimits(previousCandy, currentCandy, "x");
+    applyAnimation(previousCandy, currentCandy, "changePlaceX");
+  }
+}
+
+function spinCandies(previousCandy, currentCandy) {
+  if (previousCandy.column == currentCandy.column) {
+    setLimits(previousCandy, currentCandy, "y");
+    applyAnimation(previousCandy, currentCandy, "spinY");
+  }
+  if (previousCandy.row == currentCandy.row) {
+    setLimits(previousCandy, currentCandy, "x");
+    applyAnimation(previousCandy, currentCandy, "spinX");
+  }
+}
