@@ -52,14 +52,6 @@ export function setRandomCandys() {
   }
 }
 
-export function drawAllCandys() {
-  gameArr.forEach((row) => {
-    row.forEach((element) => {
-      element.draw();
-    });
-  });
-}
-
 function getLength() {
   const main = document.querySelector("main");
   return main.offsetWidth;

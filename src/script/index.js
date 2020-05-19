@@ -4,20 +4,36 @@ import {
   drawAllCandys,
   setRandomCandys,
   clearCanvas,
+  gameArr,
 } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
+import {
+  disappearAllMaching,
+  forAllCandies,
+  removeInvisible,
+  fillEmpty,
+} from "./engine";
+
+function render() {
+  clearCanvas();
+  drawLines(parameters.columns);
+  forAllCandies((candy) => candy.draw());
+  if (parameters.globalAction == "findMaching") {
+    disappearAllMaching();
+  }
+  requestAnimationFrame(render);
+}
 
 window.onload = () => {
-  drawLines(parameters.columns);
+  // drawLines(parameters.columns);
   setRandomCandys();
-  drawAllCandys();
+  forAllCandies((candy) => candy.draw());
+  setTimeout(disappearAllMaching, 1000);
+  render();
 };
 document.querySelector("canvas").addEventListener("click", (event) => {
   if (parameters.clickPossible) {
-    clearCanvas();
-    drawLines(parameters.columns);
     toggleSelection(event);
-    drawAllCandys();
   }
 });
