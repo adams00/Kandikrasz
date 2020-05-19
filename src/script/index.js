@@ -8,12 +8,7 @@ import {
 } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
-import {
-  disappearAllMaching,
-  forAllCandies,
-  removeInvisible,
-  fillEmpty,
-} from "./engine";
+import { disappearAllMaching, forAllCandies } from "./engine";
 
 function render() {
   clearCanvas();
@@ -26,7 +21,6 @@ function render() {
 }
 
 window.onload = () => {
-  // drawLines(parameters.columns);
   setRandomCandys();
   forAllCandies((candy) => candy.draw());
   setTimeout(disappearAllMaching, 1000);
