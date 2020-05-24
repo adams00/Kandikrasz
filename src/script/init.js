@@ -7,7 +7,7 @@ export const length = getLength();
 export const c = canvasInit(length);
 export let gameArr = createEmptyGameArray();
 export const canvasStartPoint = getCanvasStartPoint();
-
+export const imgWidth = (length - lineWidth * (columns + 1)) / columns;
 export const types = [
   "biscuit",
   "candy-cane",
@@ -28,7 +28,6 @@ function randomCandy(arr) {
 }
 
 export function setRandomCandys() {
-  const imgWidth = (length - lineWidth * (columns + 1)) / columns;
   const frameWidth = (length - lineWidth) / columns;
   let column = 0;
   let row = 0;
