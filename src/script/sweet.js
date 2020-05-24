@@ -70,19 +70,49 @@ export class Sweet {
       parameters.globalAction = "removingCandies";
     }
   }
-
-  calculateSpinX() {
-    const rate = 8;
-    if (this.x === this.limitX) {
-      this.velocityX = -this.velocityX;
+  checkIfComingBack() {
+    if (
+      (this.velocityX > 0 && this.limitX - this.startX > 0) ||
+      (this.velocityX < 0 && this.limitX - this.startX < 0)
+    ) {
+      return false;
     }
+    return true;
+  }
+  checkIfCrossStart() {
+    if (
+      (this.velocityX < 0 && this.x < this.startX) ||
+      (this.velocityX > 0 && this.x > this.startX)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  checkIfCrossLimit() {
+    if (
+      (this.velocityX < 0 && this.x < this.limitX) ||
+      (this.velocityX > 0 && this.x > this.limitX)
+    ) {
+      return true;
+    }
+    return false;
+  }
+  calculateSpinX() {
+    const rate = 10;
     if (this.velocityX == 0) {
       this.startX = this.x;
       this.velocityX = (this.limitX - this.x) / rate;
-    } else if (this.x === this.startX) {
+    }
+    if (this.checkIfComingBack() && this.checkIfCrossStart()) {
+      this.x = this.startX;
+      this.startX = this.limitX = 0;
       this.velocityX = 0;
       this.animation = false;
       parameters.globalAction = false;
+    }
+    if (!this.checkIfComingBack() && this.checkIfCrossLimit()) {
+      this.velocityX = -this.velocityX;
     }
   }
 
