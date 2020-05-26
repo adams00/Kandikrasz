@@ -69,14 +69,8 @@ function toggleCandies(previousCandy, currentCandy) {
 }
 
 function setLimits(previousCandy, currentCandy, axis) {
-  if (axis === "x") {
-    previousCandy.limitX = currentCandy.x;
-    currentCandy.limitX = previousCandy.x;
-  }
-  if (axis === "y") {
-    previousCandy.limitY = currentCandy.y;
-    currentCandy.limitY = previousCandy.y;
-  }
+  previousCandy.limit = currentCandy[axis];
+  currentCandy.limit = previousCandy[axis];
 }
 
 function applyAnimation(previousCandy, currentCandy, animation) {

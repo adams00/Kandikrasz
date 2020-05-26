@@ -9,13 +9,10 @@ export class Sweet {
     this.y = y;
     this.row = row;
     this.column = column;
-    this.velocityX = 0;
-    this.velocityY = 0;
+    this.velocity = 0;
     this.width = width;
-    this.limitY = null;
-    this.limitX = null;
-    this.startX = null;
-    this.startY = null;
+    this.limit = null;
+    this.start = null;
     this.selected = false;
     this.animation = false;
   }
@@ -27,24 +24,18 @@ export class Sweet {
       this.disappear();
     }
     if (this.animation == "spinX") {
-      this.calculateSpinX();
+      this.calculateSpin("x");
     }
     if (this.animation == "spinY") {
-      this.calculateSpinY();
+      this.calculateSpin("y");
     }
     if (this.animation == "changePlaceX") {
-      this.changePlaceX();
+      this.changePlace("x");
     }
     if (this.animation == "changePlaceY") {
-      this.changePlaceY();
+      this.changePlace("y");
     }
-    c.drawImage(
-      this.image,
-      (this.x += this.velocityX),
-      (this.y += this.velocityY),
-      this.width,
-      this.width
-    );
+    c.drawImage(this.image, this.x, this.y, this.width, this.width);
   }
   drawSelection() {
     c.fillStyle = parameters.stressColor;
@@ -72,86 +63,65 @@ export class Sweet {
   }
   checkIfComingBack() {
     if (
-      (this.velocityX > 0 && this.limitX - this.startX > 0) ||
-      (this.velocityX < 0 && this.limitX - this.startX < 0)
+      (this.velocity > 0 && this.limit - this.start > 0) ||
+      (this.velocity < 0 && this.limit - this.start < 0)
     ) {
       return false;
     }
     return true;
   }
-  checkIfCrossStart() {
+  checkIfCrossStart(axis) {
     if (
-      (this.velocityX < 0 && this.x < this.startX) ||
-      (this.velocityX > 0 && this.x > this.startX)
+      (this.velocity < 0 && this[axis] < this.start) ||
+      (this.velocity > 0 && this[axis] > this.start)
     ) {
       return true;
     }
     return false;
   }
 
-  checkIfCrossLimit() {
+  checkIfCrossLimit(axis) {
     if (
-      (this.velocityX < 0 && this.x < this.limitX) ||
-      (this.velocityX > 0 && this.x > this.limitX)
+      (this.velocity < 0 && this[axis] < this.limit) ||
+      (this.velocity > 0 && this[axis] > this.limit)
     ) {
       return true;
     }
     return false;
   }
-  calculateSpinX() {
+
+  endAnimation() {
+    this.start = this.limit = null;
+    this.velocity = 0;
+    this.animation = null;
+  }
+  calculateSpin(axis) {
     const rate = 10;
-    if (this.velocityX == 0) {
-      this.startX = this.x;
-      this.velocityX = (this.limitX - this.x) / rate;
+    if (this.velocity == 0) {
+      this.start = this[axis];
+      this.velocity = (this.limit - this[axis]) / rate;
     }
-    if (this.checkIfComingBack() && this.checkIfCrossStart()) {
-      this.x = this.startX;
-      this.startX = this.limitX = 0;
-      this.velocityX = 0;
-      this.animation = false;
-      parameters.globalAction = false;
+    this[axis] = this[axis] + this.velocity;
+    if (this.checkIfComingBack() && this.checkIfCrossStart(axis)) {
+      this[axis] = this.start;
+      this.endAnimation();
     }
-    if (!this.checkIfComingBack() && this.checkIfCrossLimit()) {
-      this.velocityX = -this.velocityX;
+    if (!this.checkIfComingBack() && this.checkIfCrossLimit(axis)) {
+      this.velocity = -this.velocity;
     }
   }
 
-  calculateSpinY() {
+  changePlace(axis) {
     const rate = 8;
-    if (this.y == this.limitY) {
-      this.velocityY = -this.velocityY;
+    if (this.velocity == 0) {
+      this.velocity = (this.limit - this[axis]) / rate;
     }
-    if (this.velocityY == 0) {
-      this.startY = this.y;
-      this.velocityY = (this.limitY - this.y) / rate;
-    } else if (this.y == this.startY) {
-      this.velocityY = 0;
-      this.animation = false;
-      parameters.globalAction = false;
-    }
-  }
-
-  changePlaceX() {
-    const rate = 8;
-    if (this.velocityX == 0) {
-      this.velocityX = (this.limitX - this.x) / rate;
-    }
-    if (this.x == this.limitX) {
-      this.velocityX = 0;
-      this.animation = null;
+    if (this.checkIfCrossLimit(axis)) {
+      this.velocity = 0;
+      this[axis] = this.limit;
+      this.endAnimation();
       parameters.globalAction = "findMaching";
     }
-  }
-
-  changePlaceY() {
-    const rate = 8;
-    if (this.velocityY == 0) {
-      this.velocityY = (this.limitY - this.y) / rate;
-    }
-    if (this.y == this.limitY) {
-      this.velocityY = 0;
-      this.animation = null;
-      parameters.globalAction = "findMaching";
-    }
+    this[axis] += this.velocity;
   }
 }
