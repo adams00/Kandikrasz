@@ -1,5 +1,8 @@
 import { parameters } from "./parameters";
-import { gameArr } from "./init";
+import { gameArr, imgWidth, types, randomCandy } from "./init";
+import { Sweet } from "./sweet";
+
+let fallCounter = 1;
 
 export function findMachingCandies(board) {
   const height = board.length;
@@ -117,5 +120,26 @@ function findY(row) {
     return lineWidth + row * (imgWidth + lineWidth);
   } else {
     return -lineWidth - row * (imgWidth + lineWidth);
+  }
+}
+
+function fillEmptyCells(column, row) {
+  if (!gameArr[row][column]) {
+    const name = randomCandy(types);
+    gameArr[row][column] = new Sweet(
+      name,
+      findY(column),
+      -fallCounter * imgWidth,
+      imgWidth,
+      row,
+      column
+    );
+    const candy = gameArr[row][column];
+    candy.limit = findY(row);
+    candy.animation = "changePlaceY";
+    if (row == 0) {
+      fallCounter = 0;
+    }
+    fallCounter++;
   }
 }
