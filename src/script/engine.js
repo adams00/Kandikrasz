@@ -101,3 +101,21 @@ export function setFallAnimations() {
   });
   bottomToTop(fillEmptyCells);
 }
+
+function bottomToTop(func) {
+  const width = gameArr.length;
+  for (let column = 0; column <= width - 1; column++) {
+    for (let row = width - 1; row >= 0; row--) {
+      func(column, row);
+    }
+  }
+}
+
+function findY(row) {
+  const { lineWidth } = parameters;
+  if (row >= 0) {
+    return lineWidth + row * (imgWidth + lineWidth);
+  } else {
+    return -lineWidth - row * (imgWidth + lineWidth);
+  }
+}
