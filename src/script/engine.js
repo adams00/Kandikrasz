@@ -73,6 +73,12 @@ export function disappearAllMaching() {
 export function replaceCandies(previousCandy, currentCandy) {
   const { row, column } = previousCandy;
   const { row: row2, column: column2 } = currentCandy;
+
   gameArr[row][column] = currentCandy;
   gameArr[row2][column2] = previousCandy;
+  currentCandy.row = row;
+  currentCandy.column = column;
+
+  previousCandy.row = row2;
+  previousCandy.column = column2;
 }
