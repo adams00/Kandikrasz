@@ -10,7 +10,6 @@ export function findMachingCandies(board) {
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const item = board[y][x];
-
       if (item.name === prev) {
         matches[matches.length - 1].push([x, y]);
       } else {
@@ -25,7 +24,6 @@ export function findMachingCandies(board) {
   for (let x = 0; x < height; x++) {
     for (let y = 0; y < width; y++) {
       const item = board[y][x];
-
       if (item.name === prev) {
         matches[matches.length - 1].push([x, y]);
       } else {
@@ -53,11 +51,14 @@ export function forAllCandies(fn) {
   });
 }
 
-export function removeInvisible(candy) {
-  const { column, row } = candy;
-  if (candy.width == 0) {
-    gameArr[row][column] = null;
-  }
+export function removeInvisible() {
+  gameArr.forEach((row, y) => {
+    row.forEach((candy, x) => {
+      if (candy && candy.width == 0) {
+        gameArr[y][x] = null;
+      }
+    });
+  });
 }
 
 export function disappearAllMaching() {
