@@ -82,3 +82,22 @@ export function replaceCandies(previousCandy, currentCandy) {
   previousCandy.row = row2;
   previousCandy.column = column2;
 }
+
+export function setFallAnimations() {
+  gameArr.forEach((row, y) => {
+    let counter = 0;
+
+    for (let i = row.length - 1; i >= 0; i--) {
+      const cell = gameArr[i][y];
+      if (cell === null) {
+        counter++;
+      } else if (counter !== 0) {
+        const newRow = i + counter;
+        cell.animation = "changePlaceY";
+        cell.limit = findY(newRow);
+        replaceFallenCandies(cell, newRow);
+      }
+    }
+  });
+  bottomToTop(fillEmptyCells);
+}
