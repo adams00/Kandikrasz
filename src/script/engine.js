@@ -143,3 +143,9 @@ function fillEmptyCells(column, row) {
     fallCounter++;
   }
 }
+function replaceFallenCandies(cell, newRow) {
+  const { column, row } = cell;
+  gameArr[newRow][column] = cell;
+  cell.row = newRow;
+  gameArr[row][column] = null;
+}
