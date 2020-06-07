@@ -1,5 +1,6 @@
 import { c } from "./init";
 import { parameters } from "./parameters";
+import { animationsEnded } from "./engine";
 
 export class Sweet {
   constructor(name, x, y, width, row, column) {
@@ -112,15 +113,19 @@ export class Sweet {
   }
 
   changePlace(axis) {
-    const rate = 8;
+    const rate = 10;
     if (this.velocity == 0) {
-      this.velocity = (this.limit - this[axis]) / rate;
+      const direction = this.limit - this[axis] > 0 ? 1 : -1;
+      this.velocity = rate * direction;
+      parameters.globalAction = null;
     }
     if (this.checkIfCrossLimit(axis)) {
       this.velocity = 0;
       this[axis] = this.limit;
       this.endAnimation();
-      parameters.globalAction = "findMaching";
+      if (animationsEnded()) {
+        parameters.globalAction = "findMaching";
+      }
     }
     this[axis] += this.velocity;
   }

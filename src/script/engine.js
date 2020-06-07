@@ -149,3 +149,11 @@ function replaceFallenCandies(cell, newRow) {
   cell.row = newRow;
   gameArr[row][column] = null;
 }
+
+export function animationsEnded() {
+  return gameArr.every((row) => {
+    return row.every((element) => {
+      return element.limit === null;
+    });
+  });
+}
