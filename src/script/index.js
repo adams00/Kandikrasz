@@ -8,7 +8,17 @@ import {
 } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
-import { disappearAllMaching, forAllCandies } from "./engine";
+import {
+  disappearAllMaching,
+  forAllCandies,
+  removeInvisible,
+  setFallAnimations,
+  animationsEnded,
+} from "./engine";
+import { test } from "./test";
+
+window.gameArr = gameArr;
+window.test = test;
 
 function render() {
   clearCanvas();
