@@ -23,9 +23,15 @@ window.test = test;
 function render() {
   clearCanvas();
   drawLines(parameters.columns);
-  forAllCandies((candy) => candy.draw());
-  if (parameters.globalAction == "findMaching") {
+  forAllCandies((candy) => {
+    candy.draw();
+  });
+  if (parameters.globalAction === "findMaching") {
     disappearAllMaching();
+  }
+  if (parameters.globalAction == "removingCandies") {
+    removeInvisible();
+    setFallAnimations();
   }
   requestAnimationFrame(render);
 }
