@@ -38,12 +38,17 @@ export function toggleSelection(event) {
 function checkIfActionNeeded(previousCandy, currentCandy) {
   const { row, column } = previousCandy;
   const { row: row2, column: column2 } = currentCandy;
-  const result =
-    (row + 1 == row2) +
-    (row - 1 == row2) +
-    (column + 1 == column2) +
-    (column - 1 == column2);
-  if (result == 1) {
+  const possibleVectors = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
+  const newVector = [row - row2, column - column2];
+  const result = possibleVectors.some((vector) => {
+    return vector[0] === newVector[0] && vector[1] === newVector[1];
+  });
+  if (result) {
     previousCandy.selected = false;
     currentCandy.selected = false;
     parameters.selectedCandy = {};
