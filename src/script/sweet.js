@@ -54,8 +54,8 @@ export class Sweet {
   }
 
   disappear() {
-    const disappearRate = 0.02;
-    this.width = this.width * (1 - disappearRate);
+    const disappearSpeed = 5
+    this.width = this.width - disappearSpeed;
     if (this.width < 20) {
       this.width = 0;
       this.animation = false;
