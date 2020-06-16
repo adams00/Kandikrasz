@@ -85,3 +85,21 @@ function getCanvasStartPoint() {
 export function clearCanvas() {
   c.clearRect(0, 0, length, length);
 }
+
+export function addNewGameButton() {
+  const button = document.getElementById("new-game-button");
+  button.addEventListener("click", () => {
+    setParameters();
+  });
+}
+
+function setParameters() {
+  if (width > 500) {
+    parameters.columns = 8;
+    startGame();
+  } else {
+    parameters.columns = 5;
+    parameters.candyNumber = 4;
+    startGame();
+  }
+}
