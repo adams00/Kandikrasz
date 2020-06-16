@@ -47,3 +47,12 @@ document.querySelector("canvas").addEventListener("click", (event) => {
     toggleSelection(event);
   }
 });
+
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector("menu");
+function handleHamburgerClick() {
+  hamburger.classList.toggle("hamburger--active");
+  menu.classList.toggle("menu--active");
+}
+
+hamburger.addEventListener("click", handleHamburgerClick);
