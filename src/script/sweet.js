@@ -61,7 +61,7 @@ export class Sweet {
   }
 
   disappear() {
-    const disappearSpeed = 5;
+    const disappearSpeed = 5 / pixelRatio;
     this.width = this.width - disappearSpeed;
     if (this.width < 20) {
       this.width = 0;
@@ -104,7 +104,7 @@ export class Sweet {
     this.animation = null;
   }
   calculateSpin(axis) {
-    const rate = 10;
+    const rate = 10 / pixelRatio;
     if (this.velocity == 0) {
       this.start = this[axis];
       this.velocity = (this.limit - this[axis]) / rate;
