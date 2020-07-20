@@ -1,6 +1,7 @@
 import { c } from "./index";
 import { parameters } from "./parameters";
 import { animationsEnded } from "./engine";
+import { pixelRatio } from "./init";
 
 export class Sweet {
   constructor(name, x, y, width, row, column) {
@@ -36,7 +37,13 @@ export class Sweet {
     if (this.animation == "changePlaceY") {
       this.changePlace("y");
     }
-    c.drawImage(this.image, this.x, this.y, this.width, this.width);
+    c.drawImage(
+      this.image,
+      this.x * pixelRatio,
+      this.y * pixelRatio,
+      this.width * pixelRatio,
+      this.width * pixelRatio
+    );
   }
   drawSelection() {
     c.fillStyle = parameters.stressColor;

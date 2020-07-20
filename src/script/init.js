@@ -3,6 +3,8 @@ import { parameters } from "./parameters";
 
 const { columns, lineWidth } = parameters;
 
+export const pixelRatio = window.devicePixelRatio;
+
 export const length = getLength();
 export let gameArr = createEmptyGameArray();
 export const canvasStartPoint = getCanvasStartPoint();

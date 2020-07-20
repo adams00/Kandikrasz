@@ -1,4 +1,7 @@
 import "../css/style.css";
+
+import { hiDPI } from "./hiDPI";
+
 import { length, drawAllCandys, setRandomCandys, gameArr } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
