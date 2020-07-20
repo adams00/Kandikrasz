@@ -4,7 +4,6 @@ import { parameters } from "./parameters";
 const { columns, lineWidth } = parameters;
 
 export const length = getLength();
-export const c = canvasInit(length);
 export let gameArr = createEmptyGameArray();
 export const canvasStartPoint = getCanvasStartPoint();
 export const imgWidth = (length - lineWidth * (columns + 1)) / columns;
@@ -55,35 +54,13 @@ function getLength() {
   const main = document.querySelector("main");
   return main.offsetWidth;
 }
-function canvasInit() {
-  const canvas = document.querySelector("canvas");
-  canvas.width = length;
-  canvas.height = length;
-  return canvas.getContext("2d");
-}
-export function drawLines(columns) {
-  c.lineWidth = lineWidth;
-  for (let i = lineWidth / 2; i < length; i += (length - lineWidth) / columns) {
-    c.beginPath();
-    c.strokeStyle = "brown";
-    c.moveTo(0, i);
-    c.lineTo(length, i);
-    c.stroke();
-    c.beginPath();
-    c.moveTo(i, 0);
-    c.lineTo(i, length);
-    c.stroke();
-  }
-}
+
 function getCanvasStartPoint() {
   const canvas = document.querySelector("canvas");
   const rect = canvas.getBoundingClientRect();
   const left = Math.floor(rect.left);
   const top = Math.floor(rect.top);
   return [left, top];
-}
-export function clearCanvas() {
-  c.clearRect(0, 0, length, length);
 }
 
 export function addNewGameButton() {

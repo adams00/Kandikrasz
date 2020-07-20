@@ -1,4 +1,4 @@
-import { c } from "./init";
+import { c } from "./index";
 import { parameters } from "./parameters";
 import { animationsEnded } from "./engine";
 
@@ -54,7 +54,7 @@ export class Sweet {
   }
 
   disappear() {
-    const disappearSpeed = 5
+    const disappearSpeed = 5;
     this.width = this.width - disappearSpeed;
     if (this.width < 20) {
       this.width = 0;
