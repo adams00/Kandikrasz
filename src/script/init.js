@@ -54,7 +54,16 @@ function setParameters() {
     startGame();
   } else {
     parameters.columns = 5;
-    parameters.candyNumber = 4;
+    parameters.allowedCandies = reduceCandyTypes(2);
     startGame();
   }
+}
+
+function reduceCandyTypes(number) {
+  let restrictedCandies = types;
+  for (let i = number; i > 0; i--) {
+    let random = randomCandy(restrictedCandies);
+    restrictedCandies = restrictedCandies.filter((candie) => candie !== random);
+  }
+  return restrictedCandies;
 }
