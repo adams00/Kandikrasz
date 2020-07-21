@@ -1,4 +1,3 @@
-import { Sweet } from "./sweet";
 import { parameters } from "./parameters";
 
 const { columns, lineWidth } = parameters;

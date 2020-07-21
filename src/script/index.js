@@ -2,7 +2,7 @@ import "../css/style.css";
 
 import { hiDPI } from "./hiDPI";
 
-import { length, drawAllCandys, gameArr } from "./init.js";
+import { length, gameArr } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
 import {
@@ -10,7 +10,6 @@ import {
   forAllCandies,
   removeInvisible,
   setFallAnimations,
-  animationsEnded,
 } from "./engine";
 import { test } from "./test";
 
