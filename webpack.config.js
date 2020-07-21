@@ -7,23 +7,23 @@ module.exports = {
   entry: "./src/script/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "docs"),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/html/index.html"
+      template: "./src/html/index.html",
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /.\html$/,
-        use: "html-loader"
+        use: "html-loader",
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -32,10 +32,10 @@ module.exports = {
           options: {
             name: "[name].[ext]",
             outputPath: "img",
-            esModule: false
-          }
-        }
-      }
-    ]
-  }
+            esModule: false,
+          },
+        },
+      },
+    ],
+  },
 };
