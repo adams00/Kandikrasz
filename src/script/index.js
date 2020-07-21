@@ -2,7 +2,7 @@ import "../css/style.css";
 
 import { hiDPI } from "./hiDPI";
 
-import { length, drawAllCandys, setRandomCandys, gameArr } from "./init.js";
+import { length, drawAllCandys, gameArr } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
 import {
@@ -64,7 +64,7 @@ function render() {
 }
 
 window.onload = () => {
-  setRandomCandys();
+  setFallAnimations();
   forAllCandies((candy) => candy.draw());
   setTimeout(disappearAllMaching, 1000);
   render();
