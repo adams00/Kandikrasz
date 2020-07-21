@@ -65,8 +65,6 @@ function render() {
 
 window.onload = () => {
   setFallAnimations();
-  forAllCandies((candy) => candy.draw());
-  setTimeout(disappearAllMaching, 1000);
   render();
 };
 document.querySelector("canvas").addEventListener("click", (event) => {
