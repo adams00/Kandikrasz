@@ -5,4 +5,5 @@ export let parameters = {
   selectedCandy: {},
   clickPossible: true,
   globalAction: false,
+  allowedCandies: [],
 };

@@ -125,7 +125,7 @@ function findY(row) {
 
 function fillEmptyCells(column, row) {
   if (!gameArr[row][column]) {
-    const name = randomCandy(types);
+    const name = randomCandy(parameters.allowedCandies);
     gameArr[row][column] = new Sweet(
       name,
       findY(column),
