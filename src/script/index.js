@@ -17,6 +17,7 @@ window.gameArr = gameArr;
 window.test = test;
 
 export const c = canvasInit(length);
+let animation = null;
 
 function canvasInit() {
   const canvas = document.querySelector("canvas");
@@ -59,13 +60,17 @@ function render() {
     removeInvisible();
     setFallAnimations();
   }
-  requestAnimationFrame(render);
+  animation = requestAnimationFrame(render);
 }
 
-window.onload = () => {
+export function startGame() {
   setFallAnimations();
-  render();
-};
+  if (animation) {
+    window.cancelAnimationFrame(animation);
+  }
+  animation = render();
+}
+
 document.querySelector("canvas").addEventListener("click", (event) => {
   if (parameters.clickPossible) {
     toggleSelection(event);
