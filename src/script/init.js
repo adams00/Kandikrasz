@@ -1,13 +1,12 @@
 import { parameters } from "./parameters";
-
-const { columns, lineWidth } = parameters;
+import { startGame } from "./index";
 
 export const pixelRatio = window.devicePixelRatio;
 
 export const length = getLength();
-export let gameArr = createEmptyGameArray();
+export let gameArr = [];
 export const canvasStartPoint = getCanvasStartPoint();
-export const imgWidth = (length - lineWidth * (columns + 1)) / columns;
+export let imgWidth = null;
 export const types = [
   "biscuit",
   "candy-cane",
@@ -48,14 +47,16 @@ export function addNewGameButton() {
 }
 
 function setParameters() {
-  if (width > 500) {
+  if (window.screen.width > 500) {
     parameters.columns = 8;
-    startGame();
+    parameters.allowedCandies = reduceCandyTypes(0);
   } else {
     parameters.columns = 5;
     parameters.allowedCandies = reduceCandyTypes(2);
-    startGame();
   }
+  gameArr = createEmptyGameArray();
+  imgWidth = calculateImgWidth();
+  startGame();
 }
 
 function reduceCandyTypes(number) {
@@ -65,4 +66,11 @@ function reduceCandyTypes(number) {
     restrictedCandies = restrictedCandies.filter((candie) => candie !== random);
   }
   return restrictedCandies;
+}
+
+function calculateImgWidth() {
+  return (
+    (length - parameters.lineWidth * (parameters.columns + 1)) /
+    parameters.columns
+  );
 }
