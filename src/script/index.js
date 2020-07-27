@@ -2,7 +2,7 @@ import "../css/style.css";
 
 import { hiDPI } from "./hiDPI";
 
-import { length, gameArr } from "./init.js";
+import { length, gameArr, addNewGameButton } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
 import {
@@ -70,6 +70,8 @@ export function startGame() {
   }
   animation = render();
 }
+
+addNewGameButton();
 
 document.querySelector("canvas").addEventListener("click", (event) => {
   if (parameters.clickPossible) {
