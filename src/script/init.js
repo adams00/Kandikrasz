@@ -18,7 +18,7 @@ export const types = [
 ];
 
 function createEmptyGameArray() {
-  return [...Array(columns)].map((e) => Array(columns));
+  return [...Array(parameters.columns)].map((e) => Array(parameters.columns));
 }
 export function randomCandy(arr) {
   const { length } = arr;
