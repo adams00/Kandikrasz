@@ -73,6 +73,7 @@ export function disappearAllMaching() {
       gameArr[y][x].animation = "disappear";
     });
   });
+  parameters.globalAction = null;
 }
 
 export function replaceCandies(previousCandy, currentCandy) {
