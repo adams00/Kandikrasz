@@ -6,4 +6,5 @@ export let parameters = {
   clickPossible: true,
   globalAction: false,
   allowedCandies: [],
+  points: 0,
 };

@@ -66,6 +66,8 @@ export function removeInvisible() {
 
 export function disappearAllMaching() {
   const maching = findMachingCandies(gameArr);
+  addPoints(maching.length);
+  updatePoints();
   maching.forEach((set) => {
     set.forEach(([x, y]) => {
       gameArr[y][x].animation = "disappear";
@@ -156,4 +158,14 @@ export function animationsEnded() {
       return element.limit === null;
     });
   });
+}
+
+function addPoints(points) {
+  parameters.points = parameters.points + points;
+}
+
+function updatePoints() {
+  document.getElementById(
+    "points-number"
+  ).innerHTML = parameters.points.toString();
 }
