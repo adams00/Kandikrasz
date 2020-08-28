@@ -14,11 +14,7 @@ body {
   background-repeat: no-repeat;
   display: flex;
 }
-main {
-  margin: auto;
-  width: 90vh;
-  height: 90vh;
-}
+
 canvas {
   background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -53,9 +49,17 @@ body > img {
   right: 60px;
   bottom: 60px;
 }
-@media (max-width: 700px) {
+main {
+  margin: auto;
+}
+@media (orientation: landscape) {
   main {
-    margin-top: 70%;
+    width: 90vh;
+    height: 90vh;
+  }
+}
+@media (orientation: portrait) {
+  main {
     width: 90vw;
     height: 90vw;
   }
