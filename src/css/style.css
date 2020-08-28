@@ -33,17 +33,26 @@ body > img {
 }
 
 .counter {
-  position: absolute;
   right: 60px;
   top: 30px;
+}
+
+.status {
+  position: absolute;
   font-size: 40px;
   color: white;
   font-family: arial;
 }
-.counter-number {
+
+.number {
   text-align: right;
 }
 
+.timer {
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+}
 @media (max-width: 700px) {
   main {
     margin-top: 70%;
