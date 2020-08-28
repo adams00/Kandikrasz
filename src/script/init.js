@@ -1,5 +1,5 @@
 import { parameters } from "./parameters";
-import { startGame } from "./index";
+import { startGame, handleHamburgerClick } from "./index";
 
 export const pixelRatio = window.devicePixelRatio;
 
@@ -42,6 +42,7 @@ function getCanvasStartPoint() {
 export function addNewGameButton() {
   const button = document.getElementById("new-game-button");
   button.addEventListener("click", () => {
+    handleHamburgerClick();
     setParameters();
   });
 }

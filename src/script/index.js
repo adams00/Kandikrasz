@@ -81,7 +81,7 @@ document.querySelector("canvas").addEventListener("click", (event) => {
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector("menu");
-function handleHamburgerClick() {
+export function handleHamburgerClick() {
   hamburger.classList.toggle("hamburger--active");
   menu.classList.toggle("menu--active");
 }
