@@ -1,7 +1,7 @@
 import { canvasStartPoint } from "./init.js";
 import { parameters } from "./parameters.js";
 import { length, gameArr } from "./init.js";
-import { findMachingCandies, replaceCandies } from "./engine";
+import { findMatchingCandies, replaceCandies } from "./engine";
 
 function getLocalCoordinates(event) {
   const [left, top] = canvasStartPoint;
@@ -66,7 +66,7 @@ function toggleCandies(previousCandy, currentCandy) {
   let currentCandyClone = { ...currentCandy };
   gameArrClone[row1][column1] = currentCandyClone;
   gameArrClone[row2][column2] = previousCandyClone;
-  if (findMachingCandies(gameArrClone).length > 0) {
+  if (findMatchingCandies(gameArrClone).length > 0) {
     changeCandies(previousCandy, currentCandy);
   } else {
     spinCandies(previousCandy, currentCandy);

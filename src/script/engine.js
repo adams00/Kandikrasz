@@ -4,7 +4,7 @@ import { Sweet } from "./sweet";
 
 let fallCounter = 1;
 
-export function findMachingCandies(board) {
+export function findMatchingCandies(board) {
   const height = board.length;
   const width = board[0].length;
   const matches = [];
@@ -65,7 +65,7 @@ export function removeInvisible() {
 }
 
 export function disappearAllMaching() {
-  const maching = findMachingCandies(gameArr);
+  const maching = findMatchingCandies(gameArr);
   addPoints(maching.length);
   updatePoints();
   maching.forEach((set) => {
