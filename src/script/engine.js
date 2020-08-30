@@ -64,11 +64,11 @@ export function removeInvisible() {
   });
 }
 
-export function disappearAllMaching() {
-  const maching = findMatchingCandies(gameArr);
-  addPoints(maching.length);
+export function disappearAllMatching() {
+  const matching = findMatchingCandies(gameArr);
+  addPoints(matching.length);
   updatePoints();
-  maching.forEach((set) => {
+  matching.forEach((set) => {
     set.forEach(([x, y]) => {
       gameArr[y][x].animation = "disappear";
     });

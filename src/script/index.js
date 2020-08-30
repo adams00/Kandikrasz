@@ -6,7 +6,7 @@ import { length, gameArr, addNewGameButton } from "./init.js";
 import { parameters } from "./parameters";
 import { toggleSelection } from "./events.js";
 import {
-  disappearAllMaching,
+  disappearAllMatching,
   forAllCandies,
   removeInvisible,
   setFallAnimations,
@@ -53,8 +53,8 @@ function render() {
   forAllCandies((candy) => {
     candy.draw();
   });
-  if (parameters.globalAction === "findMaching") {
-    disappearAllMaching();
+  if (parameters.globalAction === "findMatching") {
+    disappearAllMatching();
   }
   if (parameters.globalAction == "removingCandies") {
     removeInvisible();

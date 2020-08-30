@@ -131,7 +131,7 @@ export class Sweet {
       this[axis] = this.limit;
       this.endAnimation();
       if (animationsEnded()) {
-        parameters.globalAction = "findMaching";
+        parameters.globalAction = "findMatching";
       }
     }
     this[axis] += this.velocity;
