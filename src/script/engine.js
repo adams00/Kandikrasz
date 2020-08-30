@@ -66,7 +66,7 @@ export function removeInvisible() {
 
 export function disappearAllMatching() {
   const matching = findMatchingCandies(gameArr);
-  addPoints(matching.length);
+  calculatePoints(matching.length);
   updatePoints();
   matching.forEach((set) => {
     set.forEach(([x, y]) => {
@@ -159,6 +159,12 @@ export function animationsEnded() {
       return element.limit === null;
     });
   });
+}
+
+function calculatePoints(length) {
+  if (length) {
+    addPoints(Math.pow(2, length));
+  }
 }
 
 function addPoints(points) {
