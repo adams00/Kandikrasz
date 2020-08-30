@@ -48,7 +48,7 @@ export function addNewGameButton() {
 }
 
 function setParameters() {
-  if (window.screen.width > 500) {
+  if (window.screen.width > 500 && window.screen.height > 500) {
     parameters.columns = 8;
     parameters.allowedCandies = reduceCandyTypes(0);
   } else {
