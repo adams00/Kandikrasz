@@ -23,3 +23,17 @@
     bottom: 30px;
   }
 }
+
+@media (orientation: portrait) and (min-width: 750px) {
+  .counter {
+    right: 40px;
+    top: 40px;
+  }
+  .status {
+    font-size: 30px;
+  }
+  .timer {
+    right: 40px;
+    bottom: 40px;
+  }
+}
