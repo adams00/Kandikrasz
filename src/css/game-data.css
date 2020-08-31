@@ -24,7 +24,7 @@
   }
 }
 
-@media (orientation: portrait) and (min-width: 750px) {
+@media (min-width: 750px) {
   .counter {
     right: 40px;
     top: 40px;
