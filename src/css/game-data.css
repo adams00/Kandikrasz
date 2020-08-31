@@ -1,21 +1,23 @@
-.counter {
-  right: 60px;
-  top: 30px;
-}
+@media (orientation: portrait) and (min-width: 360px) {
+  .counter {
+    right: 30px;
+    top: 30px;
+  }
 
-.status {
-  position: absolute;
-  font-size: 40px;
-  color: white;
-  font-family: arial;
-}
+  .status {
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    font-family: arial;
+  }
 
-.number {
-  text-align: right;
-}
+  .number {
+    text-align: right;
+  }
 
-.timer {
-  position: absolute;
-  right: 60px;
-  bottom: 60px;
+  .timer {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
 }
