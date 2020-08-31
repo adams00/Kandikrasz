@@ -1,6 +1,6 @@
 @import "hamburger.css";
 @import "menu.css";
-
+@import "game-data.css";
 * {
   margin: 0;
   padding: 0;
@@ -28,27 +28,6 @@ body > img {
   height: inherit;
 }
 
-.counter {
-  right: 60px;
-  top: 30px;
-}
-
-.status {
-  position: absolute;
-  font-size: 40px;
-  color: white;
-  font-family: arial;
-}
-
-.number {
-  text-align: right;
-}
-
-.timer {
-  position: absolute;
-  right: 60px;
-  bottom: 60px;
-}
 main {
   margin: auto;
 }

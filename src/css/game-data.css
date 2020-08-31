@@ -1,0 +1,21 @@
+.counter {
+  right: 60px;
+  top: 30px;
+}
+
+.status {
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  font-family: arial;
+}
+
+.number {
+  text-align: right;
+}
+
+.timer {
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+}
