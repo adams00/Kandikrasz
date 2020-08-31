@@ -11,6 +11,23 @@ menu > p {
   cursor: pointer;
 }
 
+@media (min-width: 360px) {
+  menu {
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    font-size: 30px;
+    transform: translateX(-400px);
+    transition: transform 0.5s 0.1s ease;
+    width: 300px;
+    background-color: rgba(201, 115, 129, 0.5);
+  }
+  menu.menu--active {
+    transform: translateX(0px);
+  }
+}
+
 @media (min-width: 750px) {
   menu {
     padding: 30px 20px;

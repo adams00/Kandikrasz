@@ -53,3 +53,10 @@
 .hamburger--active .hamburger__inner::after {
   transform: translateY(-15px) rotate(-45deg);
 }
+
+@media (min-width: 360px) {
+  .hamburger__box {
+    top: 120px;
+    left: 30px;
+  }
+}
