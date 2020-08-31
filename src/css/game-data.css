@@ -10,7 +10,7 @@
   position: absolute;
 }
 
-@media (orientation: portrait) and (min-width: 360px) {
+@media (min-width: 360px) {
   .counter {
     right: 30px;
     top: 30px;
