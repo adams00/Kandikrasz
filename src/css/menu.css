@@ -1,16 +1,8 @@
 menu {
   position: absolute;
-  padding: 30px 20px;
-  font-size: 30px;
   font-family: georgia;
   font-weight: bold;
   color: white;
-  transform: translateX(-300px);
-  transition: transform 0.5s 0.1s ease;
-  width: 300px;
-}
-menu.menu--active {
-  transform: translateX(0px);
 }
 menu > p {
   margin: 20px 0;
@@ -18,6 +10,19 @@ menu > p {
   text-align: center;
   cursor: pointer;
 }
-menu > p:hover {
-  background-color: rgba(255, 192, 203, 0.3);
+
+@media (min-width: 750px) {
+  menu {
+    padding: 30px 20px;
+    font-size: 30px;
+    transform: translateX(-300px);
+    transition: transform 0.5s 0.1s ease;
+    width: 300px;
+  }
+  menu.menu--active {
+    transform: translateX(0px);
+  }
+  menu > p:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+  }
 }
