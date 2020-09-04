@@ -16,6 +16,10 @@ export const types = [
   "lollipop",
   "toffee",
 ];
+export const levels = [
+  { objective: 50, time: 120 },
+  { objective: 60, time: 100 },
+];
 
 function createEmptyGameArray() {
   return [...Array(parameters.columns)].map((e) => Array(parameters.columns));
