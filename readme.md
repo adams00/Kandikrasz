@@ -36,7 +36,7 @@ office workers. Game that could be appealing to the eye and with crisp hi-res gr
 
 Here is what you need to do to develop the game:
 
-- Fork the reo (`git clone https://github.com/adams00/Kandikrasz.git`)
+- Fork the repo (`git clone https://github.com/adams00/Kandikrasz.git`)
 - Install dependencies (`npm i`)
 - Start development server (`npm start`)
 - To create production build (`npm run build`)
@@ -55,7 +55,7 @@ Issues to be addressed:
 - Player can experience situation when there is no move possible
 - Adding levels with some goals required to enter to another level
 - Adding Auth to create accounts
-- Plug in firebase to store users ant their achievements
+- Plug in firebase to store users and their achievements
 - Too fast animations on some smaller screens
 
 ## Status
