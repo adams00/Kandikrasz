@@ -14,8 +14,6 @@
 
 ## General info
 
-Add more general information about project. What the purpose of the project is? Motivation?
-
 My main motivation to write this game was to show my skills to potential employer.
 I was watching my friends from work playing an old Adobe Flash Player games when
 they had nothing to do in their work. I stated thinking about creating a game catered to bored
