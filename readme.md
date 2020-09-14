@@ -27,7 +27,7 @@ office workers. Game that could be appealing to the eye and with crisp hi-res gr
 ## Technologies
 
 - CSS canvas
-- hiDPI liblary
+- hiDPI library
 - JS (ES6)
 
 ## Setup
@@ -50,7 +50,7 @@ List of features ready and TODOs for future development
 
 Issues to be addressed:
 
-- Even with hiDPI liblary images on scaled browser (150% scale on windows) are not as good
+- Even with hiDPI library images on scaled browser (150% scale on windows) are not as good
   as without any scaling.
 - Player can experience situation when there is no move possible
 - Adding levels with some goals required to enter to another level
