@@ -54,19 +54,25 @@
   transform: translateY(-15px) rotate(-45deg);
 }
 
+@media (min-width: 360px) {
+  .hamburger__box {
+    top: 120px;
+    left: 30px;
+  }
+}
+
+@media (min-width: 750px) {
+  .hamburger__box {
+    top: 50px;
+    left: 50px;
+  }
+}
+
 menu {
   position: absolute;
-  padding: 30px 20px;
-  font-size: 30px;
   font-family: georgia;
   font-weight: bold;
   color: white;
-  transform: translateX(-300px);
-  transition: transform 0.5s 0.1s ease;
-  width: 300px;
-}
-menu.menu--active {
-  transform: translateX(0px);
 }
 menu > p {
   margin: 20px 0;
@@ -74,8 +80,91 @@ menu > p {
   text-align: center;
   cursor: pointer;
 }
-menu > p:hover {
-  background-color: rgba(255, 192, 203, 0.3);
+
+@media (min-width: 360px) {
+  menu {
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    font-size: 30px;
+    transform: translateX(-400px);
+    transition: transform 0.5s 0.1s ease;
+    width: 300px;
+    background-color: rgba(201, 115, 129, 0.5);
+  }
+  menu.menu--active {
+    transform: translateX(0px);
+  }
+}
+
+@media (min-width: 750px) {
+  menu {
+    left: 20px;
+    top: 60px;
+    margin-left: 0;
+    margin-top: 0;
+    transform: translateX(-600px);
+    width: 300px;
+    background-color: transparent;
+  }
+  menu > p:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+  }
+}
+
+.status {
+  position: absolute;
+  color: white;
+  font-family: arial;
+}
+.number {
+  text-align: right;
+}
+.timer {
+  position: absolute;
+}
+
+@media (min-width: 360px) {
+  .counter {
+    right: 30px;
+    top: 30px;
+  }
+  .status {
+    font-size: 20px;
+  }
+  .timer {
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+@media (min-width: 750px) {
+  .counter {
+    right: 30px;
+    top: 40px;
+  }
+  .status {
+    font-size: 30px;
+  }
+  .timer {
+    right: 30px;
+    bottom: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .counter {
+    right: 40px;
+    top: 40px;
+  }
+  .status {
+    font-size: 30px;
+  }
+  .timer {
+    right: 40px;
+    bottom: 40px;
+  }
 }
 
 * {
@@ -91,11 +180,7 @@ body {
   background-repeat: no-repeat;
   display: flex;
 }
-main {
-  margin: auto;
-  width: 90vh;
-  height: 90vh;
-}
+
 canvas {
   background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -109,21 +194,17 @@ body > img {
   height: inherit;
 }
 
-.counter {
-  position: absolute;
-  right: 60px;
-  top: 30px;
-  font-size: 40px;
-  color: white;
-  font-family: arial;
+main {
+  margin: auto;
 }
-.counter-number {
-  text-align: right;
-}
-
-@media (max-width: 700px) {
+@media (orientation: landscape) {
   main {
-    margin-top: 70%;
+    width: 90vh;
+    height: 90vh;
+  }
+}
+@media (orientation: portrait) {
+  main {
     width: 90vw;
     height: 90vw;
   }

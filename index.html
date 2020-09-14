@@ -11,18 +11,22 @@
       alt="backgroundImage"
       srcset=""
     />
-    <button class="hamburger">
+    <button class="hamburger hamburger--active">
       <span class="hamburger__box"><span class="hamburger__inner"></span></span>
     </button>
-    <menu>
+    <menu class="menu--active">
       <p id="new-game-button">New Game</p>
       <p>Create custom level</p>
       <p>Leaderboard</p>
       <p>Credits</p>
     </menu>
-    <div class="counter" id="counter">
+    <div class="counter status" id="counter">
       <p>Points:</p>
-      <p class="counter-number" id="points-number">0</p>
+      <p class="number" id="points-number">0</p>
+    </div>
+    <div class="timer status">
+      <p>Time left:</p>
+      <p class="number" id="timer-number">0</p>
     </div>
     <main>
       <canvas>
