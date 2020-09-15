@@ -14,11 +14,9 @@
 
 ## General info
 
-My main motivation to write this game was to show my skills to potential employer.
-I was watching my friends from work playing old Adobe Flash Player games when
-they had nothing to do in their work. I stated thinking about creating a game catered to bored
-office workers. Game that could be appealing to the eye and with crisp hi-res graphics.
-
+I was inspired by my friends who played flashplayer games in their free time.
+I wanted to create a game without flashplayer restrictions such as small display size.
+Game that could run well on whatever screen they use without blour.
 
 ## Screenshots
 
