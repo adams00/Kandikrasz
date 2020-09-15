@@ -16,7 +16,7 @@
 
 I was inspired by my friends who played flashplayer games in their free time.
 I wanted to create a game without flashplayer restrictions such as small display size.
-Game that could run well on whatever screen they use without blour.
+Game that could run well on whatever screen they use, without blur.
 
 ## Screenshots
 
