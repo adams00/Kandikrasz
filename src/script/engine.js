@@ -171,7 +171,7 @@ function addPoints(points) {
   parameters.points = parameters.points + points;
 }
 
-function updatePoints() {
+export function updatePoints() {
   document.getElementById(
     "points-number"
   ).innerHTML = parameters.points.toString();

@@ -1,5 +1,6 @@
 import { parameters } from "./parameters";
 import { startGame, handleHamburgerClick } from "./index";
+import { updatePoints } from "./engine";
 
 export const pixelRatio = window.devicePixelRatio;
 
@@ -47,6 +48,8 @@ export function addNewGameButton() {
   const button = document.getElementById("new-game-button");
   button.addEventListener("click", () => {
     handleHamburgerClick();
+    clearPoints();
+    updatePoints();
     setParameters();
   });
 }
@@ -78,4 +81,8 @@ function calculateImgWidth() {
     (length - parameters.lineWidth * (parameters.columns + 1)) /
     parameters.columns
   );
+}
+
+function clearPoints() {
+  parameters.points = 0;
 }
