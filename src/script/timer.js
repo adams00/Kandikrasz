@@ -1,19 +1,15 @@
-// from https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
-export function startTimer(duration, display) {
-  var timer = duration,
-    minutes,
-    seconds;
-  setInterval(function () {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
+import { Flip } from "number-flip";
 
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = minutes + ":" + seconds;
-
-    if (--timer < 0) {
-      timer = "duration;";
+export function countdownFrom(counter) {
+  const countdown = new Flip({
+    node: document.getElementById("timer-number"),
+    from: counter,
+  });
+  const interval = setInterval(() => {
+    countdown.flipTo({ to: counter - 1 });
+    counter = counter - 1;
+    if (counter == 0) {
+      clearInterval(interval);
     }
   }, 1000);
 }
