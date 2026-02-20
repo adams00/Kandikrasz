@@ -1,6 +1,7 @@
 import { parameters } from "./parameters";
 import { gameArr, imgWidth, types, randomCandy } from "./init";
 import { Sweet } from "./sweet";
+import { NumberFlip } from "number-flip-animation";
 
 let fallCounter = 1;
 
@@ -172,7 +173,9 @@ function addPoints(points) {
 }
 
 export function updatePoints() {
-  document.getElementById(
-    "points-number"
-  ).innerHTML = parameters.points.toString();
+  // document.getElementById(
+  //   "points-number"
+  // ).innerHTML = parameters.points.toString();
+const numberFlip = new NumberFlip({ rootElement: document.getElementById('points-number'), durationSlide: 500 });
+numberFlip.setNumber(parameters.points)
 }

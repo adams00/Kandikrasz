@@ -1,5 +1,3 @@
-import { gameArr } from "./init";
-
 export const test = {
   logElement(row, column, property) {
     const toLog = window.gameArr[row][column][property];

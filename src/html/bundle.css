@@ -1,0 +1,238 @@
+/* src/css/hamburger.css */
+.hamburger {
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  transform: translateX(0px);
+  transition: transform 0.5s 0.1s ease;
+  outline: 0;
+}
+.hamburger.hamburger--active {
+  transform: translateX(270px);
+}
+.hamburger__box {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.hamburger__inner {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  transition: background-color 0.2s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hamburger__inner::before,
+.hamburger__inner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0px;
+  background-color: white;
+  transition: transform 0.2s 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.hamburger__inner::before {
+  top: -15px;
+}
+.hamburger__inner::after {
+  top: 15px;
+}
+.hamburger--active .hamburger__inner {
+  background-color: transparent;
+}
+.hamburger--active .hamburger__inner::before {
+  transform: translateY(15px) rotate(45deg);
+}
+.hamburger--active .hamburger__inner::after {
+  transform: translateY(-15px) rotate(-45deg);
+}
+@media (min-width: 360px) {
+  .hamburger__box {
+    top: 120px;
+    left: 30px;
+  }
+}
+@media (min-width: 750px) {
+  .hamburger__box {
+    top: 50px;
+    left: 50px;
+  }
+}
+
+/* src/css/menu.css */
+menu {
+  position: absolute;
+  font-family: georgia;
+  font-weight: bold;
+  color: white;
+}
+menu > p {
+  margin: 20px 0;
+  padding: 0px 5px;
+  text-align: center;
+  cursor: pointer;
+}
+@media (min-width: 360px) {
+  menu {
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    font-size: 30px;
+    transform: translateX(-400px);
+    transition: transform 0.5s 0.1s ease;
+    width: 300px;
+    background-color: rgba(201, 115, 129, 0.5);
+  }
+  menu.menu--active {
+    transform: translateX(0px);
+  }
+}
+@media (min-width: 750px) {
+  menu {
+    left: 20px;
+    top: 60px;
+    margin-left: 0;
+    margin-top: 0;
+    transform: translateX(-600px);
+    width: 300px;
+    background-color: transparent;
+  }
+  menu > p:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+  }
+}
+
+/* src/css/game-data.css */
+.status {
+  position: absolute;
+  color: white;
+  font-family: arial;
+}
+.number {
+  text-align: right;
+}
+.timer {
+  position: absolute;
+}
+@media (min-width: 360px) {
+  .counter {
+    right: 30px;
+    top: 30px;
+  }
+  .status {
+    font-size: 20px;
+  }
+  .timer {
+    right: 30px;
+    bottom: 30px;
+  }
+}
+@media (min-width: 750px) {
+  .counter {
+    right: 30px;
+    top: 40px;
+  }
+  .status {
+    font-size: 30px;
+  }
+  .timer {
+    right: 30px;
+    bottom: 40px;
+  }
+}
+@media (min-width: 1200px) {
+  .counter {
+    right: 40px;
+    top: 40px;
+  }
+  .status {
+    font-size: 30px;
+  }
+  .timer {
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+/* src/css/style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(116, 90, 25);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+}
+canvas {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+body > img {
+  position: absolute;
+  z-index: -1;
+  width: inherit;
+  height: inherit;
+}
+main {
+  margin: auto;
+}
+@media (orientation: landscape) {
+  main {
+    width: 90vh;
+    height: 90vh;
+  }
+}
+@media (orientation: portrait) {
+  main {
+    width: 90vw;
+    height: 90vw;
+  }
+}
+.numberflip-digit-container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  transition-property: opacity;
+  transition-duration: 200ms;
+  &.dot {
+    &,
+    & * {
+      width: 10px;
+    }
+  }
+}
+.numberflip-digit-container-value {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.numberflip-digit-container-value span {
+  text-align: center;
+}
+@keyframes numberflip-animation-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
